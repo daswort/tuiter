@@ -3,8 +3,8 @@ class UsuariosController < ApplicationController
     @usuario = Usuario.find(params[:id])
   end
   
-  def new
-    @usuario = Usuario.new
+  def create
+    @usuario = Usuario.new(params[:usuario])
 	if @usuario.save
       flash[:success] = "Bienvenido a Tuiter!"
 	  redirect_to @usuario
@@ -13,6 +13,7 @@ class UsuariosController < ApplicationController
     end
   end
   
-  def create
+  def new
+    @usuario = Usuario.new
   end
 end
