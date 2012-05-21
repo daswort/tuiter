@@ -1,58 +1,35 @@
 require 'spec_helper'
 
-describe "Paginas estaticas" do
+describe "Paginas Estaticas" do
+
+  subject { page }
 
   describe "Pagina inicio" do
+    before { visit root_path }
 
-    it "debe tener un h1 que diga 'Tuiter'" do
-      visit '/paginas_estaticas/inicio'
-      page.should have_selector('h1', :text => 'Tuiter')
-    end
-
-    it "debe tener un title que diga 'Inicio'" do
-      visit '/paginas_estaticas/inicio'
-      page.should have_selector('title', :text => "Tuiter | Inicio")
-    end
-	
-	it "no debe tener un titulo de pagina costumizado" do
-      visit '/paginas_estaticas/inicio'
-      page.should_not have_selector('title', :text => '| Inicio')
-    end
+    it { should have_selector('h1', 	   text: 'Tuiter') }
+    it { should have_selector('title', 	   text: full_title('')) }
+    it { should_not have_selector 'title', text: '| Inicio' }
   end
 
-  describe "Pagina Ayuda" do
+  describe "Pagina ayuda" do
+    before { visit ayuda_path }
 
-    it "debe tener un h1 que diga 'Ayuda'" do
-      visit '/paginas_estaticas/ayuda'
-      page.should have_selector('h1', :text => 'Ayuda')
-    end
-
-    it "debe tener un title que diga 'Ayuda'" do
-      visit '/paginas_estaticas/ayuda'
-      page.should have_selector('title', :text => "Tuiter | Ayuda")
-    end
-	
-	it "no debe tener un titulo de pagina costumizado" do
-      visit '/paginas_estaticas/ayuda'
-      page.should_not have_selector('title', :text => '| Ayuda')
-    end
+    it { should have_selector('h1',    text: 'Ayuda') }
+    it { should have_selector('title', text: full_title('Ayuda')) }
   end
 
-  describe "Pagina Nosotros" do
+  describe "Pagina nosotros" do
+    before { visit nosotros_path }
 
-    it "debe tener un h1 que diga 'Nosotros'" do
-      visit '/paginas_estaticas/nosotros'
-      page.should have_selector('h1', :text => 'Nosotros')
-    end
+    it { should have_selector('h1',    text: 'Nosotros') }
+    it { should have_selector('title', text: full_title('Nosotros')) }
+  end
 
-    it "debe tener un title que diga 'Nosotros'" do
-      visit '/paginas_estaticas/nosotros'
-      page.should have_selector('title', :text => "Tuiter | Nosotros")
-    end
-	
-	it "no debe tener un titulo de pagina costumizado" do
-      visit '/paginas_estaticas/nosotros'
-      page.should_not have_selector('title', :text => '| Nosotros')
-    end
+  describe "Pagina contacto" do
+    before { visit contacto_path }
+
+    it { should have_selector('h1',    text: 'Contacto') }
+    it { should have_selector('title', text: full_title('Contacto')) }
   end
 end

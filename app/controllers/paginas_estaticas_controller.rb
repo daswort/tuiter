@@ -7,4 +7,7 @@ class PaginasEstaticasController < ApplicationController
 
   def nosotros
   end
+  
+  def contacto
+  end
 end
