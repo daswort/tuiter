@@ -13,6 +13,11 @@ describe "Paginas estaticas" do
       visit '/paginas_estaticas/inicio'
       page.should have_selector('title', :text => "Tuiter | Inicio")
     end
+	
+	it "no debe tener un titulo de pagina costumizado" do
+      visit '/paginas_estaticas/inicio'
+      page.should_not have_selector('title', :text => '| Inicio')
+    end
   end
 
   describe "Pagina Ayuda" do
@@ -26,6 +31,11 @@ describe "Paginas estaticas" do
       visit '/paginas_estaticas/ayuda'
       page.should have_selector('title', :text => "Tuiter | Ayuda")
     end
+	
+	it "no debe tener un titulo de pagina costumizado" do
+      visit '/paginas_estaticas/ayuda'
+      page.should_not have_selector('title', :text => '| Ayuda')
+    end
   end
 
   describe "Pagina Nosotros" do
@@ -38,6 +48,11 @@ describe "Paginas estaticas" do
     it "debe tener un title que diga 'Nosotros'" do
       visit '/paginas_estaticas/nosotros'
       page.should have_selector('title', :text => "Tuiter | Nosotros")
+    end
+	
+	it "no debe tener un titulo de pagina costumizado" do
+      visit '/paginas_estaticas/nosotros'
+      page.should_not have_selector('title', :text => '| Nosotros')
     end
   end
 end
