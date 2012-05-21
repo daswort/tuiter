@@ -6,6 +6,7 @@ class UsuariosController < ApplicationController
   def create
     @usuario = Usuario.new(params[:usuario])
 	if @usuario.save
+	  ingreso @usuario
       flash[:success] = "Bienvenido a Tuiter!"
 	  redirect_to @usuario
     else

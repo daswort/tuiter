@@ -33,10 +33,10 @@ describe "Pagina usuarios" do
 
     describe "con informacion valida" do
       before do
-        fill_in "Nombre",       with: "Ejemplo Usuario"
-        fill_in "Email",        with: "usuario@ejemplo.com"
-        fill_in "Contrasena",   with: "foobar"
-        fill_in "Confirmacion", with: "foobar"
+        fill_in "Nombre",       		with: "Ejemplo Usuario"
+        fill_in "Email",        		with: "usuario@ejemplo.com"
+        fill_in "Contrasena",   		with: "foobar"
+        fill_in "Confirmar Contrasena", with: "foobar"
       end
 
       it "deberia crear usuario" do

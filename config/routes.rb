@@ -1,11 +1,14 @@
 Tuiter::Application.routes.draw do
   resources :usuarios
- 
+  resources :sesiones, only: [:new, :create, :destroy]
+  
   root to: 'paginas_estaticas#inicio' #por defecto -> get "paginas_estaticas/inicio"
-  match '/ayuda', to: 'paginas_estaticas#ayuda'
+  match '/ayuda',    to: 'paginas_estaticas#ayuda'
   match '/nosotros', to: 'paginas_estaticas#nosotros'
   match '/contacto', to: 'paginas_estaticas#contacto'
   match '/registro', to: 'usuarios#new'
+  match '/ingreso',  to: 'sesiones#new'
+  match '/salir',    to: 'sesiones#destroy', via: :delete
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
