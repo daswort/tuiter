@@ -1,0 +1,7 @@
+<%= form_for(@tuit) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+    <%= f.text_area :contenido, placeholder: "Compone un nuevo tuit..." %>
+  </div>
+  <%= f.submit "Tuitear", class: "btn btn-large btn-primary" %>
+<% end %>

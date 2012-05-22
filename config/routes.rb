@@ -1,6 +1,7 @@
 Tuiter::Application.routes.draw do
   resources :usuarios
   resources :sesiones, only: [:new, :create, :destroy]
+  resources :tuits, only: [:create, :destroy]
   
   root to: 'paginas_estaticas#inicio' #por defecto -> get "paginas_estaticas/inicio"
   match '/ayuda',    to: 'paginas_estaticas#ayuda'

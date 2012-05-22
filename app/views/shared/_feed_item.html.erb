@@ -1,0 +1,13 @@
+<li id="<%= feed_item.id %>">
+  <%= link_to gravatar_for(feed_item.usuario), feed_item.usuario %>
+  <span class="usuario">
+    <%= link_to feed_item.usuario.nombre, feed_item.usuario %>
+  </span>
+  <span class="content"><%= feed_item.contenido %></span>
+  <span class="timestamp">
+    Tuitiado hace <%= time_ago_in_words(feed_item.created_at) %> atras.
+  </span>
+  <% if current_user?(feed_item.usuario) %>
+    <%= link_to "eliminar", feed_item, method:  :delete, confirm: "Estas seguro?", title:   feed_item.contenido %>
+  <% end %>
+</li>
