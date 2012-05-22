@@ -4,10 +4,10 @@ class SesionesController < ApplicationController
   end
 
   def create
-    usuario = Usuario.find_by_email(params[:sesion][:email])
-    if usuario && usuario.authenticate(params[:sesion][:password])
-      sign_in usuario
-      redirect_to usuario
+    @usuario = Usuario.find_by_email(params[:sesion][:email])
+    if @usuario && @usuario.authenticate(params[:sesion][:password])
+      sign_in @usuario
+      redirect_back_or @usuario
     else
       flash.now[:error] = 'Combinacion email/contrasena invalida!'
       render 'new'
