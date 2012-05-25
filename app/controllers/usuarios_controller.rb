@@ -46,6 +46,20 @@ class UsuariosController < ApplicationController
     redirect_to usuarios_path
   end
   
+  def siguiendo
+    @titulo = "Siguiendo"
+    @usuario = Usuario.find(params[:id])
+    @usuarios = @usuario.usuarios_seguidos.paginate(page: params[:page])
+    render 'show_seguir'
+  end
+
+  def seguidores
+    @titulo = "Seguidores"
+    @usuario = Usuario.find(params[:id])
+    @usuarios = @usuario.usuarios_seguidores.paginate(page: params[:page])
+    render 'show_seguir'
+  end
+  
   private
 
     def signed_in_user

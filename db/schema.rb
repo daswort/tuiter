@@ -11,16 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120522030913) do
+ActiveRecord::Schema.define(:version => 20120525154204) do
+
+  create_table "relacions", :force => true do |t|
+    t.integer  "seguidor_id"
+    t.integer  "seguido_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "relacions", ["seguido_id"], :name => "index_relacions_on_seguido_id"
+  add_index "relacions", ["seguidor_id", "seguido_id"], :name => "index_relacions_on_seguidor_id_and_seguido_id", :unique => true
+  add_index "relacions", ["seguidor_id"], :name => "index_relacions_on_seguidor_id"
 
   create_table "tuits", :force => true do |t|
     t.string   "contenido"
-    t.integer  "id_usuario"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "usuario_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
-
-  add_index "tuits", ["id_usuario", "created_at"], :name => "index_tuits_on_id_usuario_and_created_at"
 
   create_table "usuarios", :force => true do |t|
     t.string   "nombre"

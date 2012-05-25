@@ -7,8 +7,12 @@
         <%= @usuario.nombre %>
       </h1>
     </section>
+	<section>
+      <%= render 'shared/estadis' %>
+    </section>
   </aside>
   <div class="span8">
+    <%= render 'seguir_form' if signed_in? %>
     <% if @usuario.tuits.any? %>
       <h3>Tuits (<%= @usuario.tuits.count %>)</h3>
       <ol class="tuits">

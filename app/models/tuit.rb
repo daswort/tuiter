@@ -17,4 +17,9 @@ class Tuit < ActiveRecord::Base
   validates :contenido, presence: true, length: { maximum: 140 }
   
   default_scope order: 'tuits.created_at DESC'
+  
+  def self.de_los_usuarios_seguidos(usuario)
+    ids_usuarios_seguidos = "SELECT seguido_id FROM relacions WHERE seguidor_id = :usuario_id"
+    where("usuario_id IN (#{ids_usuarios_seguidos}) OR usuario_id = :usuario_id", usuario_id: usuario.id)
+  end
 end

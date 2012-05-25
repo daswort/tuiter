@@ -7,10 +7,10 @@ end
 #
 # Table name: tuits
 #
-#  id         :integer         not null, primary key
+#  id         :integer         primary key
 #  contenido  :string(255)
-#  id_usuario :integer
-#  created_at :datetime        not null
-#  updated_at :datetime        not null
+#  usuario_id :integer
+#  created_at :datetime
+#  updated_at :datetime
 #
 
