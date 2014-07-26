@@ -2,42 +2,34 @@ require 'spec_helper'
 
 describe "Static pages" do
 
+  subject { page }
+
   describe "Home page" do
+    before { visit root_path }
 
-    it "should have the content 'Tuiter'" do
-      visit '/static_pages/home'
-      expect(page).to have_content('Tuiter')
-    end
-
-    it "should have the title 'Inicio'" do
-      visit '/static_pages/home'
-      expect(page).to have_title("Tuiter")
-    end
+    it { should have_content('Tuiter') }
+    it { should have_title(full_title('')) }
+    it { should_not have_title('| Home') }
   end
 
   describe "Help page" do
+    before { visit help_path }
 
-    it "should have the content 'Ayuda'" do
-      visit '/static_pages/help'
-      expect(page).to have_content('Ayuda')
-    end
-
-    it "should have the title 'Ayuda'" do
-      visit '/static_pages/help'
-      expect(page).to have_title("Tuiter | Ayuda")
-    end
+    it { should have_content('Ayuda') }
+    it { should have_title(full_title('Ayuda')) }
   end
 
   describe "About page" do
+    before { visit about_path }
 
-    it "should have the content 'Nosotros'" do
-      visit '/static_pages/about'
-      expect(page).to have_content('Nosotros')
-    end
+    it { should have_content('Nosotros') }
+    it { should have_title(full_title('Nosotros')) }
+  end
 
-    it "should have the title 'Nosotros'" do
-      visit '/static_pages/about'
-      expect(page).to have_title("Tuiter | Nosotros")
-    end
+  describe "Contact page" do
+    before { visit contact_path }
+
+    it { should have_content('Contacto') }
+    it { should have_title(full_title('Contacto')) }
   end
 end
