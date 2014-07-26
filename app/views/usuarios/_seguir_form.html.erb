@@ -1,0 +1,9 @@
+<% unless current_user?(@usuario) %>
+  <div id="seguir_form">
+  <% if current_user.siguiendo?(@usuario) %>
+    <%= render 'dejar_de_seguir' %>
+  <% else %>
+    <%= render 'seguir' %>
+  <% end %>
+  </div>
+<% end %>

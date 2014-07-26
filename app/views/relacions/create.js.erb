@@ -1,0 +1,2 @@
+$("#seguir_form").html("<%= escape_javascript(render('usuarios/dejar_de_seguir')) %>")
+$("#seguidores").html('<%= @usuario.usuarios_seguidores.count %>')

@@ -1,0 +1,16 @@
+<%= provide(:title, 'Usuarios') %>
+<h1>Todos los usuarios</h1>
+
+<%= will_paginate %>
+<ul class="usuarios">
+  <% @usuarios.each do |usuario| %>
+    <li>
+      <%= gravatar_for usuario %>
+      <%= link_to usuario.nombre, usuario %>
+	  <% if current_user.admin? && !current_user?(usuario) %>
+        | <%= link_to "Eliminar", usuario, method: :delete, confirm: "Estas seguro?" %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+<%= will_paginate %>
