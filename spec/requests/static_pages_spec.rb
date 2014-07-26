@@ -11,7 +11,7 @@ describe "Static pages" do
 
     it "should have the title 'Inicio'" do
       visit '/static_pages/home'
-      expect(page).to have_title("Tuiter | Inicio")
+      expect(page).to have_title("Tuiter")
     end
   end
 
