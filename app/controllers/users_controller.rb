@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
     def show
     	@user = User.find(params[:id])
+      @tuits = @user.tuits.paginate(page: params[:page])
   	end
 
   	def new

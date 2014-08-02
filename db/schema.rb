@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140801031938) do
+ActiveRecord::Schema.define(version: 20140802164946) do
+
+  create_table "tuits", force: true do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tuits", ["user_id", "created_at"], name: "index_tuits_on_user_id_and_created_at"
 
   create_table "users", force: true do |t|
     t.string   "name"

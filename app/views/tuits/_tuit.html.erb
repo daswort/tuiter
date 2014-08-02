@@ -1,0 +1,11 @@
+<li>
+  <span class="content"><%= tuit.content %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(tuit.created_at) %> ago.
+  </span>
+  <% if current_user?(tuit.user) %>
+    <%= link_to "eliminar", tuit, method: :delete,
+                                     data: { confirm: "estás seguro?" },
+                                     title: tuit.content %>
+  <% end %>
+</li>
